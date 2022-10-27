@@ -1,19 +1,13 @@
 class LocationsController < ApplicationController
 
-  def index
-    @locations = Location.all
-    render json: {locations: @locations}
-  end
-
   def create
-    @location = Location.create(location_params)
-    render json: @location
-  end
-
-  def update
-  end
-
-  def destroy
+    location = Location.new(location_params)
+    
+    if location.save
+      render json: @location
+    else
+      render json: @location.errors, status: :unprocessable_entity
+    end
   end
 
   private
