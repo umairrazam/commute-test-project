@@ -14,7 +14,7 @@ class GeoRoutesController < ApplicationController
   private
 
   def set_origin_destination
-    @origin      = Location.find(params[:origin_id])
+    @origin = Location.find(params[:origin_id])
     @destination = Location.find(params[:destination_id])
   end
 

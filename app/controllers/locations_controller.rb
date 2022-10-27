@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
 
   def create
     location = Location.new(location_params)
-    
+
     if location.save
       render json: @location
     else
@@ -11,6 +11,7 @@ class LocationsController < ApplicationController
   end
 
   private
+
   def location_params
     params.require(:location).permit(:category, :longitude, :latitude, :address, :author)
   end
